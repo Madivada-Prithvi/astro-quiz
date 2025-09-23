@@ -2,96 +2,145 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* NEBULA MIDNIGHT DESIGN SYSTEM - Futuristic Quiz Platform */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Nebula Midnight Theme - Cosmic Void Aesthetic */
+    --cosmic-void: 240 100% 5%;              /* #0a0a1a - Deep space background */
+    --cosmic-surface: 240 67% 16%;           /* #151542 - Elevated surfaces */
+    --cosmic-border: 240 50% 25%;            /* #1f1f5c - Subtle borders */
+    
+    /* Glass Morphism Surfaces */
+    --glass-surface: 240 67% 16% / 0.6;      /* Semi-transparent glass */
+    --glass-border: 240 50% 80% / 0.2;       /* Soft border glow */
+    
+    /* Neon Accents */
+    --neon-cyan: 185 100% 50%;               /* #00f0ff - Primary accent */
+    --neon-pink: 340 100% 58%;               /* #ff2a6d - Secondary accent */
+    --neon-purple: 280 100% 70%;             /* #a855f7 - Tertiary accent */
+    
+    /* Gradient Definitions */
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-pink)));
+    --gradient-surface: linear-gradient(135deg, hsl(var(--cosmic-surface) / 0.8), hsl(var(--cosmic-border) / 0.6));
+    --gradient-border: linear-gradient(135deg, hsl(var(--neon-cyan) / 0.5), hsl(var(--neon-pink) / 0.5));
+    
+    /* Text Colors */
+    --text-primary: 240 20% 95%;             /* #e0e0ff - Soft glow white */
+    --text-secondary: 240 15% 70%;           /* #a3a3d1 - Muted text */
+    --text-accent: 185 100% 50%;             /* Neon cyan for highlights */
+    
+    /* Semantic Theme Variables */
+    --background: var(--cosmic-void);
+    --foreground: var(--text-primary);
+    
+    --card: var(--cosmic-surface);
+    --card-foreground: var(--text-primary);
+    
+    --glass-card: var(--glass-surface);
+    --glass-card-foreground: var(--text-primary);
+    
+    --primary: var(--neon-cyan);
+    --primary-foreground: var(--cosmic-void);
+    
+    --secondary: var(--cosmic-surface);
+    --secondary-foreground: var(--text-primary);
+    
+    --accent: var(--neon-pink);
+    --accent-foreground: var(--cosmic-void);
+    
+    --muted: var(--cosmic-border);
+    --muted-foreground: var(--text-secondary);
+    
+    --border: var(--cosmic-border);
+    --input: var(--glass-surface);
+    --ring: var(--neon-cyan);
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--text-primary);
+    
+    --success: 120 100% 50%;
+    --success-foreground: var(--cosmic-void);
+    
+    --warning: 45 100% 60%;
+    --warning-foreground: var(--cosmic-void);
+    
+    --radius: 1rem;
+    
+    /* Animation Variables */
+    --animation-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --animation-fast: all 0.15s ease-out;
+    
+    /* Glow Effects */
+    --glow-sm: 0 0 10px hsl(var(--neon-cyan) / 0.3);
+    --glow-md: 0 0 20px hsl(var(--neon-cyan) / 0.4);
+    --glow-lg: 0 0 40px hsl(var(--neon-cyan) / 0.5);
+    --glow-accent: 0 0 20px hsl(var(--neon-pink) / 0.4);
+    
+    /* Glass Blur Effect */
+    --glass-blur: blur(16px);
   }
+}
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+/* Keyframe Animations */
+@keyframes cosmic-drift {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@keyframes neon-pulse {
+  0%, 100% { 
+    box-shadow: var(--glow-sm);
+    transform: scale(1);
   }
+  50% { 
+    box-shadow: var(--glow-md);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes accordion-down {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
 }
 
 @layer base {
@@ -101,5 +150,101 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+    background: radial-gradient(ellipse at top, hsl(var(--cosmic-surface) / 0.1) 0%, hsl(var(--cosmic-void)) 50%);
+    min-height: 100vh;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glass Morphism Card */
+  .glass-card {
+    @apply relative overflow-hidden;
+    background: hsl(var(--glass-card));
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid hsl(var(--glass-border));
+    border-radius: var(--radius);
+    box-shadow: 
+      0 8px 32px hsl(var(--cosmic-void) / 0.3),
+      inset 0 1px 0 hsl(var(--glass-border));
+  }
+
+  /* Neon Button Base */
+  .neon-button {
+    @apply relative overflow-hidden;
+    background: var(--gradient-cosmic);
+    transition: var(--animation-smooth);
+    box-shadow: var(--glow-sm);
+  }
+
+  .neon-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--glow-md);
+  }
+
+  .neon-button:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Animated Background */
+  .animated-bg {
+    background: var(--gradient-cosmic);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* Floating Animation */
+  .float-animation {
+    animation: cosmic-drift 6s ease-in-out infinite;
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--neon-cyan) / 0.2),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+  }
+
+  /* Glow Effects */
+  .glow-sm { box-shadow: var(--glow-sm); }
+  .glow-md { box-shadow: var(--glow-md); }
+  .glow-lg { box-shadow: var(--glow-lg); }
+  .glow-accent { box-shadow: var(--glow-accent); }
+
+  /* Typography */
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
+  }
+
+  .heading-cosmic {
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background: var(--gradient-cosmic);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
