@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { profile } = useAuth();
 
   const mockQuizzes = [
     {
@@ -88,7 +88,7 @@ const Dashboard = () => {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h1 className="text-4xl font-bai font-bold heading-cosmic mb-2">
-                  Welcome back, {user?.name}! 🚀
+                  Welcome back, {profile?.display_name}! 🚀
                 </h1>
                 <p className="text-text-secondary text-lg">
                   Ready to expand your cosmic knowledge today?

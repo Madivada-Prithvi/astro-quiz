@@ -8,16 +8,16 @@ import {
   Settings, 
   LogOut, 
   User,
-  Zap
+  Ship
 } from 'lucide-react';
 
 const Navbar = () => {
-  const { user, logout, isAuthenticated, isAdmin } = useAuth();
+  const { profile, signOut, isAuthenticated, isAdmin } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
+    signOut();
     navigate('/');
   };
 
@@ -39,11 +39,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/dashboard" className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-pink flex items-center justify-center">
-              <Zap className="w-5 h-5 text-cosmic-void" />
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-maersk-navy to-maersk-blue flex items-center justify-center">
+                <Ship className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bai font-semibold heading-cosmic">
-              Nebula Quiz
+            <span className="text-xl font-bai font-semibold heading-maersk">
+              Maersk Quiz
             </span>
           </Link>
 
@@ -85,8 +85,8 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="text-sm">
-                <p className="text-text-primary font-medium">{user?.name}</p>
-                <p className="text-text-secondary">{user?.email}</p>
+                <p className="text-text-primary font-medium">{profile?.display_name}</p>
+                <p className="text-text-secondary">{profile?.user_id}</p>
               </div>
             </div>
             

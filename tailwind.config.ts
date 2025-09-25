@@ -24,20 +24,22 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         
+        // Maersk Brand Colors
+        "maersk-navy": "hsl(var(--maersk-navy))",
+        "maersk-blue": "hsl(var(--maersk-blue))",
+        "maersk-light-blue": "hsl(var(--maersk-light-blue))",
+        "maersk-powder": "hsl(var(--maersk-powder))",
+        
+        // Neutral Colors
+        "neutral-dark": "hsl(var(--neutral-dark))",
+        "neutral-medium": "hsl(var(--neutral-medium))",
+        "neutral-light": "hsl(var(--neutral-light))",
+        "neutral-lightest": "hsl(var(--neutral-lightest))",
+        
         // Glass Morphism
         "glass-card": "hsl(var(--glass-card))",
         "glass-card-foreground": "hsl(var(--glass-card-foreground))",
         "glass-border": "hsl(var(--glass-border))",
-        
-        // Cosmic Theme
-        "cosmic-void": "hsl(var(--cosmic-void))",
-        "cosmic-surface": "hsl(var(--cosmic-surface))",
-        "cosmic-border": "hsl(var(--cosmic-border))",
-        
-        // Neon Accents
-        "neon-cyan": "hsl(var(--neon-cyan))",
-        "neon-pink": "hsl(var(--neon-pink))",
-        "neon-purple": "hsl(var(--neon-purple))",
         
         // Text Colors
         "text-primary": "hsl(var(--text-primary))",
@@ -93,8 +95,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "cosmic-drift": "cosmic-drift 6s ease-in-out infinite",
-        "neon-pulse": "neon-pulse 2s ease-in-out infinite",
+        "professional-drift": "professional-drift 4s ease-in-out infinite",
+        "maersk-pulse": "maersk-pulse 2s ease-in-out infinite",
         "gradient-shift": "gradient-shift 8s ease infinite",
         "float-up": "float-up 0.6s ease-out",
         "slide-in-right": "slide-in-right 0.4s ease-out",
@@ -121,18 +123,18 @@ export default {
             opacity: "0",
           },
         },
-        "cosmic-drift": {
+        "professional-drift": {
           "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-          "50%": { transform: "translateY(-10px) rotate(1deg)" },
+          "50%": { transform: "translateY(-8px) rotate(0.5deg)" },
         },
-        "neon-pulse": {
+        "maersk-pulse": {
           "0%, 100%": { 
-            boxShadow: "0 0 10px hsl(var(--neon-cyan) / 0.3)",
+            boxShadow: "0 0 10px hsl(var(--maersk-blue) / 0.15)",
             transform: "scale(1)",
           },
           "50%": { 
-            boxShadow: "0 0 20px hsl(var(--neon-cyan) / 0.4)",
-            transform: "scale(1.02)",
+            boxShadow: "0 0 20px hsl(var(--maersk-blue) / 0.2)",
+            transform: "scale(1.01)",
           },
         },
         "gradient-shift": {

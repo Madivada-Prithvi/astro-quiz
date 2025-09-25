@@ -25,7 +25,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { register } = useAuth();
+  const { signUp } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      await register(name, email, password);
+      const { error } = await signUp(email, password, name);
       toast({
         title: "Welcome to Nebula Quiz!",
         description: "Your cosmic journey begins now.",

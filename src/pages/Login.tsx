@@ -5,13 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useAuth } from '@/contexts/AuthContext';
-import { useToast } from '@/hooks/use-toast';
 import { 
   Eye, 
   EyeOff, 
   Mail, 
   Lock, 
-  Zap, 
+  Ship, 
   ArrowLeft,
   Github,
   Chrome
@@ -21,30 +20,22 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
-  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
+    setLoading(true);
 
     try {
-      await login(email, password);
-      toast({
-        title: "Welcome back!",
-        description: "You've successfully signed in to Nebula Quiz.",
-      });
-      navigate('/dashboard');
-    } catch (error) {
-      toast({
-        title: "Authentication failed",
-        description: "Please check your credentials and try again.",
-        variant: "destructive",
-      });
+      const { error } = await signIn(email, password);
+      
+      if (!error) {
+        navigate('/dashboard');
+      }
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
@@ -55,15 +46,15 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 animated-bg opacity-10" />
+      {/* Professional Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-maersk-powder via-white to-maersk-powder opacity-50" />
       
       {/* Floating Elements */}
       <div className="absolute inset-0">
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-neon-cyan/40 rounded-full"
+            className="absolute w-1 h-1 bg-maersk-blue/20 rounded-full"
             animate={{
               x: [0, 100, 0],
               y: [0, -100, 0],
@@ -101,16 +92,16 @@ const Login = () => {
         <div className="glass-card p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-pink p-0.5">
-              <div className="w-full h-full bg-cosmic-void rounded-xl flex items-center justify-center">
-                <Zap className="w-8 h-8 text-neon-cyan" />
+            <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-r from-maersk-navy to-maersk-blue p-0.5">
+              <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
+                <Ship className="w-8 h-8 text-maersk-navy" />
               </div>
             </div>
-            <h1 className="text-3xl font-bai font-bold heading-cosmic mb-2">
+            <h1 className="text-3xl font-bai font-bold heading-maersk mb-2">
               Welcome Back
             </h1>
             <p className="text-text-secondary">
-              Sign in to continue your cosmic learning journey
+              Sign in to continue your learning journey
             </p>
           </div>
 
@@ -122,12 +113,12 @@ const Login = () => {
                 <Button
                   key={social.label}
                   variant="outline"
-                  className="w-full h-12 border-cosmic-border hover:border-neon-cyan/50 hover:bg-cosmic-surface/50 transition-all duration-300"
+                  className="w-full h-12 border-neutral-light hover:border-maersk-blue/50 hover:bg-maersk-blue/5 transition-all duration-300"
                   disabled
                 >
                   <div className={`w-5 h-5 mr-3 rounded bg-gradient-to-r ${social.color} p-0.5`}>
-                    <div className="w-full h-full bg-cosmic-void rounded flex items-center justify-center">
-                      <Icon className="w-3 h-3 text-text-primary" />
+                    <div className="w-full h-full bg-white rounded flex items-center justify-center">
+                      <Icon className="w-3 h-3 text-gray-700" />
                     </div>
                   </div>
                   Continue with {social.label}
@@ -139,10 +130,10 @@ const Login = () => {
           {/* Divider */}
           <div className="relative mb-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-cosmic-border" />
+              <div className="w-full border-t border-neutral-light" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-cosmic-surface px-4 text-text-secondary">
+              <span className="bg-white px-4 text-text-secondary">
                 Or continue with email
               </span>
             </div>
@@ -159,10 +150,10 @@ const Login = () => {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="cosmic@nebula.com"
+                  placeholder="your.email@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 h-12 bg-cosmic-surface/50 border-cosmic-border focus:border-neon-cyan/50 focus:ring-neon-cyan/20"
+                  className="pl-10 h-12 bg-white border-neutral-light focus:border-maersk-blue/50 focus:ring-maersk-blue/20"
                   required
                 />
               </div>
@@ -180,7 +171,7 @@ const Login = () => {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 pr-10 h-12 bg-cosmic-surface/50 border-cosmic-border focus:border-neon-cyan/50 focus:ring-neon-cyan/20"
+                  className="pl-10 pr-10 h-12 bg-white border-neutral-light focus:border-maersk-blue/50 focus:ring-maersk-blue/20"
                   required
                 />
                 <button
@@ -196,7 +187,7 @@ const Login = () => {
             <div className="flex items-center justify-between">
               <Link
                 to="/forgot-password"
-                className="text-sm text-neon-cyan hover:text-neon-pink transition-colors duration-300"
+                className="text-sm text-maersk-blue hover:text-maersk-navy transition-colors duration-300"
               >
                 Forgot password?
               </Link>
@@ -204,14 +195,14 @@ const Login = () => {
 
             <Button
               type="submit"
-              disabled={isLoading}
-              className="w-full h-12 neon-button text-cosmic-void font-semibold text-lg rounded-xl"
+              disabled={loading}
+              className="w-full h-12 maersk-button text-white font-semibold text-lg rounded-xl"
             >
-              {isLoading ? (
+              {loading ? (
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                  className="w-5 h-5 border-2 border-cosmic-void/30 border-t-cosmic-void rounded-full"
+                  className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
                 />
               ) : (
                 'Sign In'
@@ -225,7 +216,7 @@ const Login = () => {
               Don't have an account?{' '}
               <Link
                 to="/register"
-                className="text-neon-cyan hover:text-neon-pink transition-colors duration-300 font-medium"
+                className="text-maersk-blue hover:text-maersk-navy transition-colors duration-300 font-medium"
               >
                 Create one now
               </Link>
@@ -244,8 +235,8 @@ const Login = () => {
             Demo Credentials:
           </p>
           <div className="text-xs text-text-secondary space-y-1">
-            <p><strong>User:</strong> user@nebula.com / password123</p>
-            <p><strong>Admin:</strong> admin@nebula.com / admin123</p>
+            <p><strong>User:</strong> user@example.com / password123</p>
+            <p><strong>Admin:</strong> admin@example.com / password123</p>
           </div>
         </motion.div>
       </motion.div>

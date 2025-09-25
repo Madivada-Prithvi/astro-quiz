@@ -2,53 +2,57 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { 
-  Zap, 
+  Ship, 
   Brain, 
   Trophy, 
   Users, 
   ArrowRight,
-  Sparkles,
+  Star,
   Target,
-  BarChart3
+  BarChart3,
+  Globe
 } from 'lucide-react';
 
 const Landing = () => {
   const features = [
     {
       icon: Brain,
-      title: 'Adaptive Learning',
-      description: 'AI-powered difficulty adjustment that evolves with your skill level'
+      title: 'Smart Learning',
+      description: 'AI-powered quiz system that adapts to your progress and learning style'
     },
     {
       icon: Trophy,
-      title: 'Achievement System',
-      description: 'Unlock cosmic badges and climb the leaderboards'
+      title: 'Achievement Tracking',
+      description: 'Earn badges and track your progress with comprehensive analytics'
     },
     {
       icon: BarChart3,
-      title: 'Advanced Analytics',
-      description: 'Deep insights into your learning patterns and progress'
+      title: 'Detailed Analytics',
+      description: 'Get insights into your performance with detailed reports and trends'
     },
     {
       icon: Users,
-      title: 'Collaborative Quizzes',
-      description: 'Challenge friends and compete in real-time battles'
+      title: 'Team Management',
+      description: 'Create teams, share quizzes, and compete with colleagues'
     }
   ];
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 animated-bg opacity-20" />
+      {/* Professional Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-maersk-navy via-maersk-blue to-maersk-light-blue" />
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23003e62' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
+      </div>
       
-      {/* Floating Particles */}
+      {/* Floating Elements */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className={`absolute w-2 h-2 rounded-full ${
-              i % 3 === 0 ? 'bg-neon-cyan' : i % 3 === 1 ? 'bg-neon-pink' : 'bg-neon-purple'
-            }/30`}
+            className="absolute w-2 h-2 rounded-full bg-maersk-blue/20"
             initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
@@ -58,7 +62,7 @@ const Landing = () => {
               y: Math.random() * window.innerHeight,
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: Math.random() * 20 + 20,
               repeat: Infinity,
               repeatType: 'reverse',
               ease: 'linear'
@@ -74,10 +78,10 @@ const Landing = () => {
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: 'spring' }}
-            className="w-24 h-24 mx-auto mb-8 rounded-2xl bg-gradient-to-r from-neon-cyan to-neon-pink p-0.5"
+            className="w-24 h-24 mx-auto mb-8 rounded-2xl bg-gradient-to-r from-maersk-navy to-maersk-blue p-0.5"
           >
-            <div className="w-full h-full bg-cosmic-void rounded-2xl flex items-center justify-center">
-              <Zap className="w-12 h-12 text-neon-cyan" />
+            <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center">
+              <Ship className="w-12 h-12 text-maersk-navy" />
             </div>
           </motion.div>
 
@@ -85,9 +89,9 @@ const Landing = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-6xl md:text-8xl font-bai font-bold mb-6 heading-cosmic"
+            className="text-6xl md:text-8xl font-bai font-bold mb-6 heading-maersk"
           >
-            Nebula Quiz
+            Maersk Quiz
           </motion.h1>
 
           <motion.p
@@ -96,9 +100,9 @@ const Landing = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl md:text-2xl text-text-secondary mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Experience the future of learning with immersive quizzes, 
-            advanced analytics, and AI-powered personalization in a 
-            stunning cosmic interface.
+            Elevate your team's knowledge with our professional quiz platform. 
+            Create engaging assessments, track progress, and drive learning excellence 
+            across your organization.
           </motion.p>
 
           <motion.div
@@ -110,10 +114,10 @@ const Landing = () => {
             <Link to="/register">
               <Button 
                 size="lg" 
-                className="neon-button text-cosmic-void font-semibold px-8 py-6 text-lg rounded-xl"
+                className="maersk-button text-white font-semibold px-8 py-6 text-lg rounded-xl"
               >
-                <Sparkles className="w-5 h-5 mr-2" />
-                Start Your Journey
+                <Star className="w-5 h-5 mr-2" />
+                Get Started
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -122,7 +126,7 @@ const Landing = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-2 border-neon-cyan/50 text-neon-cyan hover:bg-neon-cyan/10 px-8 py-6 text-lg rounded-xl"
+                className="border-2 border-maersk-blue/50 text-maersk-blue hover:bg-maersk-blue/5 px-8 py-6 text-lg rounded-xl"
               >
                 Sign In
               </Button>
@@ -146,8 +150,8 @@ const Landing = () => {
                   transition={{ delay: 1 + index * 0.1, duration: 0.6 }}
                   className="glass-card p-6 text-center group hover:glow-sm transition-all duration-300"
                 >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-to-r from-neon-cyan/20 to-neon-pink/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-neon-cyan" />
+                  <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-to-r from-maersk-blue/10 to-maersk-light-blue/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-6 h-6 text-maersk-blue" />
                   </div>
                   <h3 className="text-lg font-bai font-semibold mb-2 text-text-primary">
                     {feature.title}
@@ -171,21 +175,21 @@ const Landing = () => {
             transition={{ duration: 0.8 }}
             className="glass-card p-12 max-w-4xl mx-auto"
           >
-            <Target className="w-16 h-16 mx-auto mb-6 text-neon-pink" />
-            <h2 className="text-4xl font-bai font-bold mb-4 heading-cosmic">
-              Ready to Elevate Your Learning?
+            <Globe className="w-16 h-16 mx-auto mb-6 text-maersk-blue" />
+            <h2 className="text-4xl font-bai font-bold mb-4 heading-maersk">
+              Ready to Transform Learning?
             </h2>
             <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of learners who have transformed their knowledge 
-              with our futuristic quiz platform.
+              Join organizations worldwide who trust our platform to deliver 
+              exceptional learning experiences and drive measurable results.
             </p>
             <Link to="/register">
               <Button 
                 size="lg" 
-                className="neon-button text-cosmic-void font-semibold px-10 py-6 text-lg rounded-xl"
+                className="maersk-button text-white font-semibold px-10 py-6 text-lg rounded-xl"
               >
-                <Zap className="w-5 h-5 mr-2" />
-                Begin Your Cosmic Journey
+                <Ship className="w-5 h-5 mr-2" />
+                Start Your Journey Today
               </Button>
             </Link>
           </motion.div>

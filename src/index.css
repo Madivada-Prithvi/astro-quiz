@@ -2,68 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* NEBULA MIDNIGHT DESIGN SYSTEM - Futuristic Quiz Platform */
+/* MAERSK QUIZ PLATFORM - Premium SaaS Design System */
 
 @layer base {
   :root {
-    /* Nebula Midnight Theme - Cosmic Void Aesthetic */
-    --cosmic-void: 240 100% 5%;              /* #0a0a1a - Deep space background */
-    --cosmic-surface: 240 67% 16%;           /* #151542 - Elevated surfaces */
-    --cosmic-border: 240 50% 25%;            /* #1f1f5c - Subtle borders */
+    /* Maersk Brand Colors */
+    --maersk-navy: 210 100% 19%;             /* #003e62 - Primary navy */
+    --maersk-blue: 197 87% 43%;              /* #1686bd - Ocean blue */
+    --maersk-light-blue: 205 65% 73%;        /* #a1d1e8 - Light ocean */
+    --maersk-powder: 205 79% 94%;            /* #e2f3fb - Powder blue */
+    
+    /* Neutral Colors */
+    --neutral-dark: 0 0% 21%;                /* #363636 - Dark gray */
+    --neutral-medium: 0 0% 42%;              /* #6a6a6a - Medium gray */
+    --neutral-light: 0 0% 83%;               /* #d4d4d4 - Light gray */
+    --neutral-lightest: 0 0% 94%;            /* #f0f0f0 - Very light gray */
     
     /* Glass Morphism Surfaces */
-    --glass-surface: 240 67% 16% / 0.6;      /* Semi-transparent glass */
-    --glass-border: 240 50% 80% / 0.2;       /* Soft border glow */
-    
-    /* Neon Accents */
-    --neon-cyan: 185 100% 50%;               /* #00f0ff - Primary accent */
-    --neon-pink: 340 100% 58%;               /* #ff2a6d - Secondary accent */
-    --neon-purple: 280 100% 70%;             /* #a855f7 - Tertiary accent */
+    --glass-surface: 210 100% 19% / 0.08;    /* Semi-transparent navy */
+    --glass-border: 197 87% 43% / 0.2;       /* Ocean blue border */
     
     /* Gradient Definitions */
-    --gradient-cosmic: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-pink)));
-    --gradient-surface: linear-gradient(135deg, hsl(var(--cosmic-surface) / 0.8), hsl(var(--cosmic-border) / 0.6));
-    --gradient-border: linear-gradient(135deg, hsl(var(--neon-cyan) / 0.5), hsl(var(--neon-pink) / 0.5));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--maersk-navy)), hsl(var(--maersk-blue)));
+    --gradient-surface: linear-gradient(135deg, hsl(var(--glass-surface)), hsl(var(--maersk-powder) / 0.1));
+    --gradient-border: linear-gradient(135deg, hsl(var(--maersk-blue) / 0.3), hsl(var(--maersk-light-blue) / 0.3));
     
     /* Text Colors */
-    --text-primary: 240 20% 95%;             /* #e0e0ff - Soft glow white */
-    --text-secondary: 240 15% 70%;           /* #a3a3d1 - Muted text */
-    --text-accent: 185 100% 50%;             /* Neon cyan for highlights */
+    --text-primary: 210 100% 19%;            /* Navy for primary text */
+    --text-secondary: 0 0% 42%;              /* Medium gray for secondary */
+    --text-accent: 197 87% 43%;              /* Ocean blue for accents */
     
     /* Semantic Theme Variables */
-    --background: var(--cosmic-void);
+    --background: 0 0% 98%;                   /* Light background */
     --foreground: var(--text-primary);
     
-    --card: var(--cosmic-surface);
+    --card: 0 0% 100%;                        /* Pure white cards */
     --card-foreground: var(--text-primary);
     
     --glass-card: var(--glass-surface);
     --glass-card-foreground: var(--text-primary);
     
-    --primary: var(--neon-cyan);
-    --primary-foreground: var(--cosmic-void);
+    --primary: var(--maersk-navy);
+    --primary-foreground: 0 0% 100%;          /* White text on navy */
     
-    --secondary: var(--cosmic-surface);
+    --secondary: var(--neutral-lightest);
     --secondary-foreground: var(--text-primary);
     
-    --accent: var(--neon-pink);
-    --accent-foreground: var(--cosmic-void);
+    --accent: var(--maersk-blue);
+    --accent-foreground: 0 0% 100%;           /* White text on blue */
     
-    --muted: var(--cosmic-border);
+    --muted: var(--neutral-light);
     --muted-foreground: var(--text-secondary);
     
-    --border: var(--cosmic-border);
-    --input: var(--glass-surface);
-    --ring: var(--neon-cyan);
+    --border: var(--neutral-light);
+    --input: 0 0% 100%;                       /* White input backgrounds */
+    --ring: var(--maersk-blue);
     
     --destructive: 0 84% 60%;
     --destructive-foreground: var(--text-primary);
     
-    --success: 120 100% 50%;
-    --success-foreground: var(--cosmic-void);
+    --success: 142 76% 36%;               /* Professional green */
+    --success-foreground: 0 0% 100%;
     
-    --warning: 45 100% 60%;
-    --warning-foreground: var(--cosmic-void);
+    --warning: 35 91% 62%;                    /* Professional orange */
+    --warning-foreground: 0 0% 100%;
     
     --radius: 1rem;
     
@@ -73,10 +75,10 @@
     --animation-fast: all 0.15s ease-out;
     
     /* Glow Effects */
-    --glow-sm: 0 0 10px hsl(var(--neon-cyan) / 0.3);
-    --glow-md: 0 0 20px hsl(var(--neon-cyan) / 0.4);
-    --glow-lg: 0 0 40px hsl(var(--neon-cyan) / 0.5);
-    --glow-accent: 0 0 20px hsl(var(--neon-pink) / 0.4);
+    --glow-sm: 0 0 10px hsl(var(--maersk-blue) / 0.15);
+    --glow-md: 0 0 20px hsl(var(--maersk-blue) / 0.2);
+    --glow-lg: 0 0 40px hsl(var(--maersk-blue) / 0.25);
+    --glow-accent: 0 0 20px hsl(var(--maersk-light-blue) / 0.3);
     
     /* Glass Blur Effect */
     --glass-blur: blur(16px);
@@ -151,7 +153,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Space Grotesk', sans-serif;
-    background: radial-gradient(ellipse at top, hsl(var(--cosmic-surface) / 0.1) 0%, hsl(var(--cosmic-void)) 50%);
+    background: linear-gradient(135deg, hsl(var(--maersk-powder)) 0%, hsl(var(--background)) 50%);
     min-height: 100vh;
     font-feature-settings: 'kern' 1, 'liga' 1;
   }
@@ -165,43 +167,43 @@
   /* Glass Morphism Card */
   .glass-card {
     @apply relative overflow-hidden;
-    background: hsl(var(--glass-card));
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid hsl(var(--glass-border));
     border-radius: var(--radius);
     box-shadow: 
-      0 8px 32px hsl(var(--cosmic-void) / 0.3),
+      0 8px 32px hsl(var(--maersk-navy) / 0.08),
       inset 0 1px 0 hsl(var(--glass-border));
   }
 
-  /* Neon Button Base */
-  .neon-button {
+  /* Professional Button Base */
+  .maersk-button {
     @apply relative overflow-hidden;
-    background: var(--gradient-cosmic);
+    background: var(--gradient-primary);
     transition: var(--animation-smooth);
     box-shadow: var(--glow-sm);
   }
 
-  .neon-button:hover {
-    transform: translateY(-2px) scale(1.02);
+  .maersk-button:hover {
+    transform: translateY(-1px) scale(1.01);
     box-shadow: var(--glow-md);
   }
 
-  .neon-button:active {
-    transform: translateY(0) scale(0.98);
+  .maersk-button:active {
+    transform: translateY(0) scale(0.99);
   }
 
   /* Animated Background */
   .animated-bg {
-    background: var(--gradient-cosmic);
+    background: var(--gradient-primary);
     background-size: 200% 200%;
     animation: gradient-shift 8s ease infinite;
   }
 
-  /* Floating Animation */
+  /* Professional Float Animation */
   .float-animation {
-    animation: cosmic-drift 6s ease-in-out infinite;
+    animation: professional-drift 4s ease-in-out infinite;
   }
 
   /* Shimmer Effect */
@@ -220,7 +222,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      hsl(var(--neon-cyan) / 0.2),
+      hsl(var(--maersk-blue) / 0.2),
       transparent
     );
     transform: translateX(-100%);
@@ -235,14 +237,14 @@
 
   /* Typography */
   .text-glow {
-    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
+    text-shadow: 0 0 10px hsl(var(--maersk-blue) / 0.3);
   }
 
-  .heading-cosmic {
+  .heading-maersk {
     font-family: 'Bai Jamjuree', sans-serif;
     font-weight: 600;
-    letter-spacing: 0.05em;
-    background: var(--gradient-cosmic);
+    letter-spacing: 0.025em;
+    background: var(--gradient-primary);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
